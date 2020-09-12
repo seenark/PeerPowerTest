@@ -35,10 +35,10 @@
                     <ul class="navbar-nav mr-auto">
                         @auth
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Home</a>
+                                <a href="/" class="nav-link">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Gallery</a>
+                                <a href="/gallery" class="nav-link">Gallery</a>
                             </li>
                         @endauth
 

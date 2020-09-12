@@ -20,7 +20,7 @@
         </div>
     </div> --}}
     <div class="row justify-content-center">
-        <dash-board></dash-board>
+        <main-app></main-app>
     </div>
 </div>
 @endsection
