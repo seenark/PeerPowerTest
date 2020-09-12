@@ -1,5 +1,5 @@
 <template>
-    <form enctype="multipart/form-data" class="border-dashed text-center" @submit.prevent="sendFile">
+    <form class="border-dashed text-center">
 
             <label class="col-12 p-0 text-center">
                 <span aria-hidden="true">
@@ -26,32 +26,38 @@
                 <input type="file" multiple @change="selectFile"/>
             </label>
             <br>
-            <button class="btn btn-primary">Submit</button>
     </form>
 </template>
 
 <script>
 import axios from "axios";
+import _ from 'lodash';
 export default {
     name: "uploadZone",
     data() {
         return {
-            files: "",
+            files: {},
         };
     },
     methods: {
         selectFile(event) {
             this.files = event.srcElement.files;
             console.log(this.files)
+            this.sendFile()
         },
         async sendFile() {
-            const formData = new FormData();
-            formData.append("files", this.files);
-
+            let total = 0;
+            let formData = new FormData();
+            _.forEach(this.files, (file,index) => {
+                formData.append(`file${index}`,file)
+                total++;
+            });
+            formData.append("total",total)
             try {
-                await axios.post("/upload", formData);
+                const res = await axios.post("/gallery",formData)
+                this.$emit('uploaded');
             } catch (error) {
-                console.log(error);
+
             }
         },
     },

@@ -174,6 +174,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // for debug
+        'Barryvdh\Debugbar\ServiceProvider',
 
     ],
 
@@ -226,6 +228,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        // for debug
+        'Debugbar' => 'Barryvdh\Debugbar\Facade',
 
     ],
 

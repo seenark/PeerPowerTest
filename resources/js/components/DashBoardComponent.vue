@@ -10,7 +10,7 @@
                             <div class="col-4">
                                 <span class="font-weigth-bold">Total Size:</span>
                             </div>
-                            <div class="col-4">{{totalSizes}} MB ({{sizeInByte(totalSizes)}}Byte)</div>
+                            <div class="col-4">{{sizeInMB(totalSizes)}} MB ({{totalSizes}}Byte)</div>
                         </div>
                         <div class="row">
                             <div class="col-4">
@@ -47,7 +47,7 @@
                                 <div class="col">
                                     <span
                                         class
-                                    >{{getJpgFiles.sizes}} MB ({{sizeInByte(getJpgFiles.sizes)}} bytes)</span>
+                                    >{{sizeInMB(getJpgFiles.size)}} MB ({{getJpgFiles.size}} bytes)</span>
                                 </div>
                             </div>
                             <div class="row border-top p-2" v-if="getPngFiles.numberOfFiles > 0">
@@ -60,7 +60,7 @@
                                 <div class="col">
                                     <span
                                         class
-                                    >{{getPngFiles.sizes}} MB ({{sizeInByte(getPngFiles.sizes)}} bytes)</span>
+                                    >{{sizeInMB(getPngFiles.size)}} MB ({{getPngFiles.size}} bytes)</span>
                                 </div>
                             </div>
                         </div>
@@ -85,24 +85,11 @@
 <script>
 export default {
     mounted() {
-        console.log("Dashboard mounted.");
+        this.fetchImages()
     },
     data() {
         return {
-            files: [
-                {
-                    type: "jpg",
-                    sizes: 4.8,
-                },
-                {
-                    type: "png",
-                    sizes: 8,
-                },
-                {
-                    type: "jpg",
-                    sizes: 1.1,
-                },
-            ],
+            files: [],
         };
     },
     computed: {
@@ -112,44 +99,49 @@ export default {
         totalSizes() {
             let total = 0;
             this.files.forEach((currentFile) => {
-                total = total + currentFile.sizes;
+                total = total + currentFile.size;
             });
             return total;
         },
         getJpgFiles() {
             let count = 0;
-            let sizes = 0;
+            let size = 0;
             this.files.forEach((file) => {
                 const type = file.type.toLowerCase();
                 if (type == "jpg") {
                     count++;
-                    sizes += file.sizes;
+                    size += file.size;
                 }
             });
             return {
                 numberOfFiles: count,
-                sizes: sizes,
+                size: size,
             };
         },
         getPngFiles() {
             let count = 0;
-            let sizes = 0;
+            let size = 0;
             this.files.forEach((file) => {
                 const type = file.type.toLowerCase();
                 if (type == "png") {
                     count++;
-                    sizes += file.sizes;
+                    size += file.size;
                 }
             });
             return {
                 numberOfFiles: count,
-                sizes: sizes,
+                size: size,
             };
         },
     },
     methods: {
-        sizeInByte(size) {
-            return size * 1048576;
+        sizeInMB(size) {
+            return (size/1000000).toFixed(2);
+        },
+        async fetchImages() {
+            const res = await axios.get("/getImages");
+            this.files = res.data.data;
+
         },
     },
 };

@@ -21,3 +21,7 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/gallery','App\Http\Controllers\HomeController@gallery');
+Route::post('/gallery','App\Http\Controllers\GalleryController@store');
+Route::get('/getAuthId','App\Http\Controllers\HomeController@getAuthId');
+Route::get('/getImages','App\Http\Controllers\HomeController@getImages');
+Route::delete('/gallery/{id}','App\Http\Controllers\HomeController@deleteImage');
