@@ -13,16 +13,16 @@ This project build for Job Apply to PeerPower only.
 This Prooject build with PHP, Laravel framework, Vue framework and Database MySQL
 
 Run
-- composer install
-- npm install
+- ```composer install```
+- ```npm install```
 - create .env file
 - copy .env.example to .env 
 - ```php artisan key:generate``` => for generate new app_key
 - set up MySQL in .env file for Database set up
-- php artisan cache:clear 
-- php artisan config:clear
+- ```php artisan cache:clear ```
+- ```php artisan config:clear```
 - in your local computer or docker create database name "peerpowertest" or if you already have database change it in the .env file if you prefer to use that
-- php artisan migrate => to create table
-- npm run dev or npm run build or npm run watch
-- php artisan serve => for run server 
+- ```php artisan migrate``` => to create table
+- ```npm run dev``` or ```npm run build``` or ```npm run watch```
+- ```php artisan serve``` => for run server 
 
