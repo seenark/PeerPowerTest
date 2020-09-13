@@ -12,7 +12,9 @@
 This project build for Job Apply to PeerPower only.
 This Prooject build with PHP, Laravel framework, Vue framework and Database MySQL
 
+After clone this project
 Run
+- ```cd PeerPowerTest```
 - ```composer install```
 - ```npm install```
 - ```mv .env.example .env```
