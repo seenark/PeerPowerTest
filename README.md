@@ -21,6 +21,7 @@ Run
 - set up MySQL in .env file for Database set up
 - ```php artisan cache:clear ```
 - ```php artisan config:clear```
+- ```php artisan storage:link```
 - in your local computer or docker create database name "peerpowertest" or if you already have database change it in the .env file if you prefer to use that
 - ```php artisan migrate``` => to create table
 - ```npm run dev``` or ```npm run build``` or ```npm run watch```
