@@ -2191,6 +2191,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2265,6 +2291,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     zoomClicked: function zoomClicked(image) {
       this.zoomImage = this.makeImageSource(image);
       this.zoom = true;
+    },
+    checkType: function checkType(image) {
+      if (image.type == "jpg" || image.type == "png") {
+        return true;
+      } else {
+        return false;
+      }
     }
   },
   computed: {},
@@ -6861,7 +6894,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\nimg[data-v-a13cd294] {\n    width: 100%;\n    height: 200px;\n    -o-object-fit: cover !important;\n       object-fit: cover !important;\n}\n.img-container[data-v-a13cd294] {\n    position: relative;\n    overflow: hidden;\n}\n.img-container[data-v-a13cd294]:hover {\n    cursor: pointer;\n}\n.button-hover[data-v-a13cd294] {\n    width: 100%;\n    height: 100%;\n    position: absolute;\n    top: 0;\n    left: 0;\n    display: flexbox;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    opacity: 0;\n}\n.button-hover[data-v-a13cd294]:hover {\n    opacity: 1;\n    background-color: rgba(32, 32, 32, 0.514);\n}\nbutton[data-v-a13cd294] {\n    height: 50px;\n    width: 50px;\n    margin: 0.5rem;\n}\n.container[data-v-a13cd294] {\n    position: relative;\n}\n.zoom[data-v-a13cd294] {\n    position: fixed;;\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    left: 0;\n    background-color: rgba(0, 0, 0, 0.514);\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.zoom>img[data-v-a13cd294] {\n    position: relative;\n    padding: 16px;\n    height: auto;\n    max-height: 80vh;\n    width: 640px;\n    -o-object-fit:contain;\n       object-fit:contain;\n}\n\n", ""]);
+exports.push([module.i, "\nimg[data-v-a13cd294] {\n    width: 100%;\n    height: 200px;\n    -o-object-fit: cover !important;\n       object-fit: cover !important;\n}\n.img-container[data-v-a13cd294] {\n    position: relative;\n    overflow: hidden;\n}\n.img-container[data-v-a13cd294]:hover {\n    cursor: pointer;\n}\n.button-hover[data-v-a13cd294] {\n    width: 100%;\n    height: 100%;\n    position: absolute;\n    top: 0;\n    left: 0;\n    display: flexbox;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    opacity: 0;\n}\n.button-hover[data-v-a13cd294]:hover {\n    opacity: 1;\n    background-color: rgba(32, 32, 32, 0.514);\n}\nbutton[data-v-a13cd294] {\n    height: 50px;\n    width: 50px;\n    margin: 0.5rem;\n}\n.container[data-v-a13cd294] {\n    position: relative;\n}\n.zoom[data-v-a13cd294] {\n    position: fixed;\n    width: 100vw;\n    height: 100vh;\n    top: 0;\n    left: 0;\n    background-color: rgba(0, 0, 0, 0.514);\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n.zoom > img[data-v-a13cd294] {\n    position: relative;\n    padding: 16px;\n    height: auto;\n    max-height: 80vh;\n    width: 640px;\n    -o-object-fit: contain;\n       object-fit: contain;\n}\n.incorrect-file[data-v-a13cd294] {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    text-align: center;\n    color: rgb(220, 54, 69);\n}\n.incorrect-file > svg[data-v-a13cd294] {\n    font-size: 5rem;\n}\n", ""]);
 
 // exports
 
@@ -39693,49 +39726,51 @@ var render = function() {
                           "button-hover row mx-auto justify-content-center"
                       },
                       [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary",
-                            on: {
-                              click: function($event) {
-                                return _vm.zoomClicked(image)
-                              }
-                            }
-                          },
-                          [
-                            _c(
-                              "svg",
+                        _vm.checkType(image)
+                          ? _c(
+                              "button",
                               {
-                                staticClass: "bi bi-search",
-                                attrs: {
-                                  width: "1em",
-                                  height: "1em",
-                                  viewBox: "0 0 16 16",
-                                  fill: "currentColor",
-                                  xmlns: "http://www.w3.org/2000/svg"
+                                staticClass: "btn btn-primary",
+                                on: {
+                                  click: function($event) {
+                                    return _vm.zoomClicked(image)
+                                  }
                                 }
                               },
                               [
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d:
-                                      "M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"
-                                  }
-                                }),
-                                _vm._v(" "),
-                                _c("path", {
-                                  attrs: {
-                                    "fill-rule": "evenodd",
-                                    d:
-                                      "M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
-                                  }
-                                })
+                                _c(
+                                  "svg",
+                                  {
+                                    staticClass: "bi bi-search",
+                                    attrs: {
+                                      width: "1em",
+                                      height: "1em",
+                                      viewBox: "0 0 16 16",
+                                      fill: "currentColor",
+                                      xmlns: "http://www.w3.org/2000/svg"
+                                    }
+                                  },
+                                  [
+                                    _c("path", {
+                                      attrs: {
+                                        "fill-rule": "evenodd",
+                                        d:
+                                          "M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("path", {
+                                      attrs: {
+                                        "fill-rule": "evenodd",
+                                        d:
+                                          "M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"
+                                      }
+                                    })
+                                  ]
+                                )
                               ]
                             )
-                          ]
-                        ),
+                          : _vm._e(),
                         _vm._v(" "),
                         _c(
                           "button",
@@ -39782,10 +39817,54 @@ var render = function() {
                       ]
                     ),
                     _vm._v(" "),
-                    _c("img", {
-                      staticClass: "img-thumbnail",
-                      attrs: { src: _vm.makeImageSource(image) }
-                    })
+                    _vm.checkType(image)
+                      ? _c("img", {
+                          staticClass: "img-thumbnail",
+                          attrs: { src: _vm.makeImageSource(image) }
+                        })
+                      : _c("div", { staticClass: "incorrect-file" }, [
+                          _c(
+                            "svg",
+                            {
+                              staticClass: "bi bi-exclamation-triangle",
+                              attrs: {
+                                width: "1.0625em",
+                                height: "1em",
+                                viewBox: "0 0 17 16",
+                                fill: "currentColor",
+                                xmlns: "http://www.w3.org/2000/svg"
+                              }
+                            },
+                            [
+                              _c("path", {
+                                attrs: {
+                                  "fill-rule": "evenodd",
+                                  d:
+                                    "M7.938 2.016a.146.146 0 0 0-.054.057L1.027 13.74a.176.176 0 0 0-.002.183c.016.03.037.05.054.06.015.01.034.017.066.017h13.713a.12.12 0 0 0 .066-.017.163.163 0 0 0 .055-.06.176.176 0 0 0-.003-.183L8.12 2.073a.146.146 0 0 0-.054-.057A.13.13 0 0 0 8.002 2a.13.13 0 0 0-.064.016zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"
+                                }
+                              }),
+                              _vm._v(" "),
+                              _c("path", {
+                                attrs: {
+                                  d:
+                                    "M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z"
+                                }
+                              })
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("span", [_vm._v("File type not supported.")]),
+                          _vm._v(" "),
+                          _c("br"),
+                          _vm._v(" "),
+                          _c("span", [
+                            _vm._v(
+                              _vm._s(image.image) + "." + _vm._s(image.type)
+                            )
+                          ])
+                        ])
                   ]
                 )
               }),
