@@ -17,7 +17,7 @@ Run
 - npm install
 - create .env file
 - copy .env.example to .env 
-- php artisan key:generate => for generate new app_key
+- ```php artisan key:generate``` => for generate new app_key
 - set up MySQL in .env file for Database set up
 - php artisan cache:clear 
 - php artisan config:clear
